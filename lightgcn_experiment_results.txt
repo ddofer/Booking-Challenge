@@ -1,0 +1,194 @@
+#####
+Light GCN results:
+Take 1:
+
+drop consecutive duplicates, without dropping "last" duplicates.
+Kept cities that appeared at least 4 times. 
+Evaluation onf 35% user split, last item only.
+
+n_layers=3,
+learning_rate=0.01,
+
+Evaluation: (@4) 
+    remove_seen=False
+        Topk Accuracy: 33.18 accuracy (was 34.18 before we removed matches on rare classes)
+    remove_seen=True
+        Topk Accuracy: 19.89 (Significantly worse, same for prec, recall)
+
+Training: 
+    Epoch 1 (train)58.5s: train loss = 0.04443 = (mf)0.04349 + (embed)0.00094
+Epoch 2 (train)46.3s: train loss = 0.01198 = (mf)0.01051 + (embed)0.00148
+Epoch 3 (train)46.2s: train loss = 0.00886 = (mf)0.00708 + (embed)0.00179
+Epoch 4 (train)46.8s + (eval)34.3s: train loss = 0.00734 = (mf)0.00535 + (embed)0.00199, recall = 0.26794, precision = 0.06698, ndcg = 0.20840
+Epoch 5 (train)46.6s: train loss = 0.00665 = (mf)0.00452 + (embed)0.00214
+Epoch 6 (train)46.9s: train loss = 0.00621 = (mf)0.00399 + (embed)0.00222
+Epoch 7 (train)46.5s: train loss = 0.00561 = (mf)0.00336 + (embed)0.00225
+Epoch 8 (train)46.5s + (eval)31.5s: train loss = 0.00541 = (mf)0.00314 + (embed)0.00228, recall = 0.25738, precision = 0.06435, ndcg = 0.19857
+Epoch 9 (train)46.5s: train loss = 0.00525 = (mf)0.00298 + (embed)0.00227
+Epoch 10 (train)46.7s: train loss = 0.00529 = (mf)0.00302 + (embed)0.00227
+Epoch 11 (train)46.7s: train loss = 0.00512 = (mf)0.00284 + (embed)0.00228
+Epoch 12 (train)46.8s + (eval)31.3s: train loss = 0.00479 = (mf)0.00251 + (embed)0.00228, recall = 0.23793, precision = 0.05948, ndcg = 0.18115
+Epoch 13 (train)46.6s: train loss = 0.00486 = (mf)0.00259 + (embed)0.00227
+Epoch 14 (train)46.6s: train loss = 0.00460 = (mf)0.00233 + (embed)0.00227
+Epoch 15 (train)46.6s: train loss = 0.00449 = (mf)0.00222 + (embed)0.00227
+Epoch 16 (train)46.4s + (eval)31.2s: train loss = 0.00464 = (mf)0.00236 + (embed)0.00227, recall = 0.23140, precision = 0.05785, ndcg = 0.17553
+Epoch 17 (train)46.3s: train loss = 0.00465 = (mf)0.00237 + (embed)0.00228
+Epoch 18 (train)46.4s: train loss = 0.00460 = (mf)0.00231 + (embed)0.00229
+Epoch 19 (train)46.4s: train loss = 0.00445 = (mf)0.00216 + (embed)0.00229
+Epoch 20 (train)46.4s + (eval)31.3s: train loss = 0.00438 = (mf)0.00209 + (embed)0.00229, recall = 0.22299, precision = 0.05575, ndcg = 0.16894
+Epoch 21 (train)46.4s: train loss = 0.00420 = (mf)0.00190 + (embed)0.00229
+Epoch 22 (train)46.3s: train loss = 0.00444 = (mf)0.00214 + (embed)0.00229
+Epoch 23 (train)46.4s: train loss = 0.00434 = (mf)0.00202 + (embed)0.00231
+Epoch 24 (train)46.3s + (eval)31.2s: train loss = 0.00421 = (mf)0.00190 + (embed)0.00230, recall = 0.21461, precision = 0.05365, ndcg = 0.16061
+Epoch 25 (train)46.3s: train loss = 0.00432 = (mf)0.00201 + (embed)0.00231
+Epoch 26 (train)46.4s: train loss = 0.00444 = (mf)0.00212 + (embed)0.00232
+Epoch 27 (train)46.3s: train loss = 0.00428 = (mf)0.00197 + (embed)0.00231
+Epoch 28 (train)46.4s + (eval)31.3s: train loss = 0.00430 = (mf)0.00200 + (embed)0.00230, recall = 0.20684, precision = 0.05171, ndcg = 0.15454
+Epoch 29 (train)46.4s: train loss = 0.00417 = (mf)0.00185 + (embed)0.00231
+Epoch 30 (train)46.4s: train loss = 0.00433 = (mf)0.00201 + (embed)0.00232
+Epoch 31 (train)46.5s: train loss = 0.00430 = (mf)0.00197 + (embed)0.00234
+Epoch 32 (train)46.5s + (eval)30.9s: train loss = 0.00427 = (mf)0.00193 + (embed)0.00234, recall = 0.21131, precision = 0.05283, ndcg = 0.15950
+Epoch 33 (train)46.3s: train loss = 0.00425 = (mf)0.00192 + (embed)0.00233
+Epoch 34 (train)46.3s: train loss = 0.00434 = (mf)0.00199 + (embed)0.00234
+Epoch 35 (train)46.4s: train loss = 0.00425 = (mf)0.00190 + (embed)0.00235
+Epoch 36 (train)46.5s + (eval)31.2s: train loss = 0.00430 = (mf)0.00194 + (embed)0.00235, recall = 0.20279, precision = 0.05070, ndcg = 0.15230
+Epoch 37 (train)46.1s: train loss = 0.00425 = (mf)0.00191 + (embed)0.00234
+Epoch 38 (train)45.9s: train loss = 0.00419 = (mf)0.00186 + (embed)0.00234
+Epoch 39 (train)46.2s: train loss = 0.00423 = (mf)0.00188 + (embed)0.00235
+Epoch 40 (train)46.1s + (eval)28.8s: train loss = 0.00427 = (mf)0.00192 + (embed)0.00234, recall = 0.19832, precision = 0.04958, ndcg = 0.14852
+Epoch 41 (train)46.1s: train loss = 0.00403 = (mf)0.00169 + (embed)0.00234
+Epoch 42 (train)45.9s: train loss = 0.00449 = (mf)0.00215 + (embed)0.00235
+Epoch 43 (train)45.9s: train loss = 0.00438 = (mf)0.00203 + (embed)0.00235
+Epoch 44 (train)46.1s + (eval)28.4s: train loss = 0.00441 = (mf)0.00206 + (embed)0.00236, recall = 0.20325, precision = 0.05081, ndcg = 0.15185
+Epoch 45 (train)46.2s: train loss = 0.00420 = (mf)0.00184 + (embed)0.00236
+Epoch 46 (train)46.1s: train loss = 0.00424 = (mf)0.00189 + (embed)0.00235
+Epoch 47 (train)46.0s: train loss = 0.00418 = (mf)0.00184 + (embed)0.00235
+Epoch 48 (train)45.9s + (eval)28.6s: train loss = 0.00402 = (mf)0.00169 + (embed)0.00233, recall = 0.19898, precision = 0.04974, ndcg = 0.14967
+Epoch 49 (train)45.9s: train loss = 0.00429 = (mf)0.00196 + (embed)0.00232
+Epoch 50 (train)46.1s: train loss = 0.00411 = (mf)0.00179 + (embed)0.00233
+Epoch 51 (train)46.2s: train loss = 0.00410 = (mf)0.00178 + (embed)0.00233
+Epoch 52 (train)46.1s + (eval)29.2s: train loss = 0.00413 = (mf)0.00179 + (embed)0.00234, recall = 0.20186, precision = 0.05047, ndcg = 0.15157
+Epoch 53 (train)46.0s: train loss = 0.00402 = (mf)0.00169 + (embed)0.00233
+Epoch 54 (train)45.9s: train loss = 0.00423 = (mf)0.00189 + (embed)0.00234
+Epoch 55 (train)46.0s: train loss = 0.00419 = (mf)0.00186 + (embed)0.00233
+Epoch 56 (train)45.9s + (eval)29.1s: train loss = 0.00440 = (mf)0.00207 + (embed)0.00233, recall = 0.19630, precision = 0.04908, ndcg = 0.14842
+Epoch 57 (train)46.0s: train loss = 0.00417 = (mf)0.00183 + (embed)0.00234
+Epoch 58 (train)46.1s: train loss = 0.00439 = (mf)0.00204 + (embed)0.00234
+Epoch 59 (train)45.9s: train loss = 0.00399 = (mf)0.00166 + (embed)0.00233
+Epoch 60 (train)46.3s + (eval)28.6s: train loss = 0.00416 = (mf)0.00185 + (embed)0.00231, recall = 0.19721, precision = 0.04930, ndcg = 0.14738
+Epoch 61 (train)45.9s: train loss = 0.00401 = (mf)0.00169 + (embed)0.00232
+Epoch 62 (train)45.9s: train loss = 0.00434 = (mf)0.00201 + (embed)0.00232
+Epoch 63 (train)46.0s: train loss = 0.00417 = (mf)0.00184 + (embed)0.00234
+Epoch 64 (train)46.0s + (eval)29.1s: train loss = 0.00388 = (mf)0.00155 + (embed)0.00234, recall = 0.20210, precision = 0.05053, ndcg = 0.15190
+Epoch 65 (train)45.9s: train loss = 0.00410 = (mf)0.00177 + (embed)0.00233
+Epoch 66 (train)46.0s: train loss = 0.00420 = (mf)0.00187 + (embed)0.00233
+Epoch 67 (train)46.0s: train loss = 0.00425 = (mf)0.00192 + (embed)0.00233
+Epoch 68 (train)45.9s + (eval)28.5s: train loss = 0.00421 = (mf)0.00188 + (embed)0.00233, recall = 0.20018, precision = 0.05004, ndcg = 0.15090
+Epoch 69 (train)45.9s: train loss = 0.00431 = (mf)0.00198 + (embed)0.00233
+Epoch 70 (train)46.5s: train loss = 0.00411 = (mf)0.00179 + (embed)0.00233
+Epoch 71 (train)46.6s: train loss = 0.00402 = (mf)0.00171 + (embed)0.00231
+Epoch 72 (train)46.2s + (eval)28.8s: train loss = 0.00409 = (mf)0.00178 + (embed)0.00231, recall = 0.20163, precision = 0.05041, ndcg = 0.15226
+Epoch 73 (train)46.1s: train loss = 0.00400 = (mf)0.00169 + (embed)0.00231
+Epoch 74 (train)46.1s: train loss = 0.00396 = (mf)0.00165 + (embed)0.00231
+Epoch 75 (train)46.1s: train loss = 0.00408 = (mf)0.00176 + (embed)0.00232
+Epoch 76 (train)46.1s + (eval)28.6s: train loss = 0.00413 = (mf)0.00182 + (embed)0.00231, recall = 0.19241, precision = 0.04810, ndcg = 0.14414
+Epoch 77 (train)47.3s: train loss = 0.00426 = (mf)0.00193 + (embed)0.00232
+Epoch 78 (train)46.9s: train loss = 0.00407 = (mf)0.00176 + (embed)0.00232
+Epoch 79 (train)45.9s: train loss = 0.00390 = (mf)0.00158 + (embed)0.00232
+Epoch 80 (train)45.9s + (eval)29.1s: train loss = 0.00411 = (mf)0.00179 + (embed)0.00232, recall = 0.19805, precision = 0.04951, ndcg = 0.14932
+Epoch 81 (train)45.9s: train loss = 0.00414 = (mf)0.00183 + (embed)0.00232
+Epoch 82 (train)46.0s: train loss = 0.00397 = (mf)0.00166 + (embed)0.00231
+Epoch 83 (train)46.0s: train loss = 0.00410 = (mf)0.00180 + (embed)0.00231
+Epoch 84 (train)46.3s + (eval)28.9s: train loss = 0.00415 = (mf)0.00184 + (embed)0.00231, recall = 0.19670, precision = 0.04917, ndcg = 0.14645
+Epoch 85 (train)46.0s: train loss = 0.00418 = (mf)0.00185 + (embed)0.00232
+Epoch 86 (train)45.9s: train loss = 0.00418 = (mf)0.00185 + (embed)0.00233
+Epoch 87 (train)46.2s: train loss = 0.00409 = (mf)0.00176 + (embed)0.00233
+Epoch 88 (train)46.2s + (eval)28.9s: train loss = 0.00415 = (mf)0.00182 + (embed)0.00233, recall = 0.19737, precision = 0.04934, ndcg = 0.14766
+Epoch 89 (train)46.1s: train loss = 0.00422 = (mf)0.00189 + (embed)0.00233
+Epoch 90 (train)46.1s: train loss = 0.00434 = (mf)0.00200 + (embed)0.00234
+Epoch 91 (train)45.9s: train loss = 0.00418 = (mf)0.00185 + (embed)0.00233
+Epoch 92 (train)46.0s + (eval)28.8s: train loss = 0.00391 = (mf)0.00160 + (embed)0.00230, recall = 0.19914, precision = 0.04978, ndcg = 0.14908
+Epoch 93 (train)46.0s: train loss = 0.00408 = (mf)0.00178 + (embed)0.00230
+Epoch 94 (train)46.0s: train loss = 0.00406 = (mf)0.00174 + (embed)0.00232
+Epoch 95 (train)45.9s: train loss = 0.00423 = (mf)0.00191 + (embed)0.00232
+Epoch 96 (train)46.1s + (eval)28.9s: train loss = 0.00427 = (mf)0.00195 + (embed)0.00232, recall = 0.20308, precision = 0.05077, ndcg = 0.15139
+Epoch 97 (train)46.3s: train loss = 0.00414 = (mf)0.00183 + (embed)0.00232
+Epoch 98 (train)45.9s: train loss = 0.00437 = (mf)0.00204 + (embed)0.00233
+Epoch 99 (train)45.9s: train loss = 0.00426 = (mf)0.00192 + (embed)0.00234
+Epoch 100 (train)46.1s + (eval)29.0s: train loss = 0.00413 = (mf)0.00179 + (embed)0.00234, recall = 0.19896, precision = 0.04974, ndcg = 0.14892
+Took 5379.083296700001 seconds for training.
+
+##############
+## Take 2: 
+As above + lower LR (0.005), lower max epochs
+
+Topk Accuracy: 40.951
+MAP:    0.276230
+NDCG:   0.309798
+Precision@K:    0.102378
+Recall@K:   0.409512
+
+
+Epoch 1 (train)39.4s: train loss = 0.11249 = (mf)0.11202 + (embed)0.00048
+Epoch 2 (train)26.6s: train loss = 0.02698 = (mf)0.02617 + (embed)0.00081
+Epoch 3 (train)26.7s: train loss = 0.01967 = (mf)0.01873 + (embed)0.00094
+Epoch 4 (train)26.6s: train loss = 0.01564 = (mf)0.01461 + (embed)0.00103
+Epoch 5 (train)26.5s + (eval)31.6s: train loss = 0.01353 = (mf)0.01242 + (embed)0.00111, recall = 0.26347, precision = 0.06587
+Epoch 6 (train)26.6s: train loss = 0.01205 = (mf)0.01087 + (embed)0.00118
+Epoch 7 (train)26.6s: train loss = 0.01103 = (mf)0.00978 + (embed)0.00125
+Epoch 8 (train)26.7s: train loss = 0.00973 = (mf)0.00842 + (embed)0.00131
+Epoch 9 (train)26.9s: train loss = 0.00873 = (mf)0.00737 + (embed)0.00136
+Epoch 10 (train)26.0s + (eval)27.9s: train loss = 0.00829 = (mf)0.00688 + (embed)0.00141, recall = 0.27496, precision = 0.06874
+Epoch 11 (train)26.1s: train loss = 0.00753 = (mf)0.00607 + (embed)0.00146
+Epoch 12 (train)25.5s: train loss = 0.00762 = (mf)0.00612 + (embed)0.00149
+Epoch 13 (train)25.4s: train loss = 0.00683 = (mf)0.00530 + (embed)0.00153
+Epoch 14 (train)25.3s: train loss = 0.00657 = (mf)0.00502 + (embed)0.00156
+Epoch 15 (train)25.4s + (eval)26.7s: train loss = 0.00625 = (mf)0.00467 + (embed)0.00158, recall = 0.27990, precision = 0.06998
+Epoch 16 (train)25.6s: train loss = 0.00576 = (mf)0.00416 + (embed)0.00160
+Epoch 17 (train)25.4s: train loss = 0.00588 = (mf)0.00427 + (embed)0.00161
+Epoch 18 (train)25.4s: train loss = 0.00550 = (mf)0.00388 + (embed)0.00162
+Epoch 19 (train)25.4s: train loss = 0.00509 = (mf)0.00347 + (embed)0.00162
+Epoch 20 (train)25.6s + (eval)26.6s: train loss = 0.00501 = (mf)0.00339 + (embed)0.00163, recall = 0.28100, precision = 0.07025
+Epoch 21 (train)25.8s: train loss = 0.00500 = (mf)0.00337 + (embed)0.00163
+Epoch 22 (train)25.5s: train loss = 0.00488 = (mf)0.00326 + (embed)0.00162
+Epoch 23 (train)25.5s: train loss = 0.00472 = (mf)0.00310 + (embed)0.00162
+Epoch 24 (train)25.5s: train loss = 0.00458 = (mf)0.00297 + (embed)0.00161
+Epoch 25 (train)25.4s + (eval)26.5s: train loss = 0.00439 = (mf)0.00278 + (embed)0.00161, recall = 0.28141, precision = 0.07035
+Took 800.6880977999999 seconds for training.
+
+#############
+### take 3:
+Like 2, with lower LR + more epochs. 
+Basically same performance.
+
+Topk Accuracy: 40.821
+
+Epoch 24 (train)25.9s + (eval)28.5s: train loss = 0.00732 = (mf)0.00588 + (embed)0.00144, recall = 0.27797, precision = 0.06949
+Epoch 25 (train)26.5s: train loss = 0.00677 = (mf)0.00532 + (embed)0.00145
+Epoch 26 (train)27.2s: train loss = 0.00636 = (mf)0.00490 + (embed)0.00146
+Epoch 27 (train)27.4s: train loss = 0.00641 = (mf)0.00494 + (embed)0.00147
+Epoch 28 (train)26.9s + (eval)27.8s: train loss = 0.00624 = (mf)0.00476 + (embed)0.00148, recall = 0.28138, precision = 0.07035
+Epoch 29 (train)26.3s: train loss = 0.00623 = (mf)0.00475 + (embed)0.00148
+Epoch 30 (train)27.1s: train loss = 0.00601 = (mf)0.00452 + (embed)0.00149
+Epoch 31 (train)27.0s: train loss = 0.00582 = (mf)0.00433 + (embed)0.00149
+Epoch 32 (train)27.0s + (eval)28.2s: train loss = 0.00585 = (mf)0.00435 + (embed)0.00149, recall = 0.28121, precision = 0.07030
+Epoch 33 (train)26.9s: train loss = 0.00561 = (mf)0.00412 + (embed)0.00150
+Epoch 34 (train)27.1s: train loss = 0.00559 = (mf)0.00409 + (embed)0.00150
+Epoch 35 (train)26.0s: train loss = 0.00541 = (mf)0.00391 + (embed)0.00150
+Epoch 36 (train)25.7s + (eval)26.6s: train loss = 0.00543 = (mf)0.00393 + (embed)0.00150, recall = 0.28164, precision = 0.07041
+Epoch 37 (train)25.8s: train loss = 0.00522 = (mf)0.00372 + (embed)0.00150
+Epoch 38 (train)25.7s: train loss = 0.00515 = (mf)0.00365 + (embed)0.00150
+Epoch 39 (train)25.5s: train loss = 0.00502 = (mf)0.00352 + (embed)0.00150
+Epoch 40 (train)25.7s + (eval)26.2s: train loss = 0.00472 = (mf)0.00322 + (embed)0.00150, recall = 0.28270, precision = 0.07067
+Epoch 41 (train)25.9s: train loss = 0.00464 = (mf)0.00314 + (embed)0.00150
+Epoch 42 (train)25.7s: train loss = 0.00469 = (mf)0.00320 + (embed)0.00149
+Epoch 43 (train)25.6s: train loss = 0.00456 = (mf)0.00307 + (embed)0.00149
+Epoch 44 (train)25.5s + (eval)26.7s: train loss = 0.00462 = (mf)0.00314 + (embed)0.00148, recall = 0.28114, precision = 0.07029
+Epoch 45 (train)25.9s: train loss = 0.00437 = (mf)0.00289 + (embed)0.00148
+Epoch 46 (train)25.5s: train loss = 0.00433 = (mf)0.00285 + (embed)0.00147
+Epoch 47 (train)25.5s: train loss = 0.00442 = (mf)0.00295 + (embed)0.00147
+Epoch 48 (train)25.5s + (eval)26.6s: train loss = 0.00433 = (mf)0.00286 + (embed)0.00146, recall = 0.28150, precision = 0.07037
+Epoch 49 (train)25.8s: train loss = 0.00434 = (mf)0.00288 + (embed)0.00146
+Epoch 50 (train)25.6s: train loss = 0.00419 = (mf)0.00273 + (embed)0.00145
+Took 1650.8878026000002 seconds for training.
+
